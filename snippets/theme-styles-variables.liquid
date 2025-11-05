@@ -562,5 +562,35 @@
     --cart-secondary-font-family: var(--font-{{ settings.cart_price_font }}--family);
     --cart-secondary-font-style: var(--font-{{ settings.cart_price_font }}--style);
     --cart-secondary-font-weight: var(--font-{{ settings.cart_price_font }}--weight);
+
+    /* Override body font to use Facundo */
+    --font-body--family: 'Facundo', sans-serif;
+    --font-paragraph--family: 'Facundo', sans-serif;
+
+    /* Override heading fonts to use Cormorant */
+    --font-heading--family: 'Cormorant', serif;
+    --font-subheading--family: 'Cormorant', serif;
+    --font-h1--family: 'Cormorant', serif;
+    --font-h2--family: 'Cormorant', serif;
+    --font-h3--family: 'Cormorant', serif;
+    --font-h4--family: 'Cormorant', serif;
+    --font-h5--family: 'Cormorant', serif;
+    --font-h6--family: 'Cormorant', serif;
+
+    /* Override button fonts to use Facundo with Liewood specs */
+    --button-font-family-primary: 'Facundo', sans-serif;
+    --button-font-family-secondary: 'Facundo', sans-serif;
+  }
+
+  .button,
+  .button-primary,
+  .button-secondary,
+  button {
+    font-family: 'Facundo', sans-serif;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: normal;
+    color: #333333;
+    border-radius: 4px;
   }
 {% endstyle %}
