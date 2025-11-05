@@ -49,7 +49,7 @@
             "custom_width_mobile": 100,
             "height": "fit",
             "details_position": "flex-start",
-            "gap": 28,
+            "gap": 16,
             "sticky_details_desktop": true,
             "inherit_color_scheme": true,
             "color_scheme": "scheme-1",
@@ -328,7 +328,7 @@
               "settings": {
                 "icon": "caret",
                 "dividers": false,
-                "type_preset": "h6",
+                "type_preset": "h5",
                 "inherit_color_scheme": true,
                 "color_scheme": "scheme-1",
                 "border": "none",
