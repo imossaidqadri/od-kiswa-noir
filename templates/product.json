@@ -6,7 +6,8 @@
  * or related systems. Please exercise caution as any changes
  * made to this file may be overwritten.
  * ------------------------------------------------------------
- */{
+ */
+{
   "sections": {
     "main": {
       "type": "product-information",
@@ -15,20 +16,20 @@
           "type": "_product-media-gallery",
           "static": true,
           "settings": {
-            "media_presentation": "grid",
+            "media_presentation": "carousel",
             "media_columns": "two",
             "image_gap": 4,
             "large_first_image": false,
             "icons_style": "none",
-            "slideshow_controls_style": "counter",
-            "slideshow_mobile_controls_style": "dots",
+            "slideshow_controls_style": "thumbnails",
+            "slideshow_mobile_controls_style": "hint",
             "thumbnail_position": "right",
             "thumbnail_width": 44,
             "aspect_ratio": "adapt",
             "constrain_to_viewport": true,
             "media_fit": "contain",
             "media_radius": 0,
-            "extend_media": false,
+            "extend_media": true,
             "zoom": true,
             "video_loop": false,
             "hide_variants": true,
@@ -70,7 +71,6 @@
               "type": "group",
               "name": "Header",
               "settings": {
-                "open_in_new_tab": false,
                 "content_direction": "column",
                 "vertical_on_mobile": true,
                 "horizontal_alignment": "flex-start",
@@ -98,6 +98,9 @@
                 "overlay_color": "#00000026",
                 "overlay_style": "solid",
                 "gradient_direction": "to top",
+                "link": "",
+                "open_in_new_tab": false,
+                "placeholder": "",
                 "padding-block-start": 0,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
@@ -188,6 +191,7 @@
               "settings": {
                 "stacking": true,
                 "show_pickup_availability": false,
+                "gift_card_form": true,
                 "padding-block-start": 0,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
@@ -204,7 +208,7 @@
                   "type": "add-to-cart",
                   "static": true,
                   "settings": {
-                    "style_class": "button"
+                    "style_class": "button-secondary"
                   },
                   "blocks": {}
                 },
@@ -224,7 +228,8 @@
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
                 "padding-inline-end": 0
-              }
+              },
+              "blocks": {}
             },
             "inventory_status": {
               "type": "product-inventory",
@@ -235,7 +240,8 @@
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
                 "padding-inline-end": 0
-              }
+              },
+              "blocks": {}
             },
             "return_policy_text": {
               "type": "product-return-policy",
@@ -244,7 +250,8 @@
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
                 "padding-inline-end": 0
-              }
+              },
+              "blocks": {}
             },
             "secure_payment_text": {
               "type": "product-secure-payment",
@@ -253,7 +260,8 @@
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
                 "padding-inline-end": 0
-              }
+              },
+              "blocks": {}
             },
             "compliance_link": {
               "type": "product-compliance-link",
@@ -262,7 +270,8 @@
                 "padding-block-end": 4,
                 "padding-inline-start": 0,
                 "padding-inline-end": 0
-              }
+              },
+              "blocks": {}
             },
             "accordion_description": {
               "type": "accordion",
@@ -270,7 +279,7 @@
               "settings": {
                 "icon": "caret",
                 "dividers": false,
-                "type_preset": "h6",
+                "type_preset": "h5",
                 "inherit_color_scheme": true,
                 "color_scheme": "scheme-1",
                 "border": "none",
@@ -288,8 +297,8 @@
                   "settings": {
                     "heading": "DESCRIPTION",
                     "open_by_default": false,
-                    "icon": "none",
-                    "width": 20
+                    "icon": "eye",
+                    "width": 16
                   },
                   "blocks": {
                     "description_text": {
@@ -314,13 +323,18 @@
                         "padding-block-end": 0,
                         "padding-inline-start": 0,
                         "padding-inline-end": 0
-                      }
+                      },
+                      "blocks": {}
                     }
                   },
-                  "block_order": ["description_text"]
+                  "block_order": [
+                    "description_text"
+                  ]
                 }
               },
-              "block_order": ["description_row"]
+              "block_order": [
+                "description_row"
+              ]
             },
             "accordion_delivery": {
               "type": "accordion",
@@ -346,8 +360,8 @@
                   "settings": {
                     "heading": "DELIVERY",
                     "open_by_default": false,
-                    "icon": "none",
-                    "width": 20
+                    "icon": "box",
+                    "width": 16
                   },
                   "blocks": {
                     "delivery_text": {
@@ -372,13 +386,18 @@
                         "padding-block-end": 0,
                         "padding-inline-start": 0,
                         "padding-inline-end": 0
-                      }
+                      },
+                      "blocks": {}
                     }
                   },
-                  "block_order": ["delivery_text"]
+                  "block_order": [
+                    "delivery_text"
+                  ]
                 }
               },
-              "block_order": ["delivery_row"]
+              "block_order": [
+                "delivery_row"
+              ]
             }
           },
           "block_order": [
