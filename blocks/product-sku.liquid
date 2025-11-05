@@ -1,0 +1,80 @@
+
+
+{% liquid
+  assign block_settings = block.settings
+  assign product = closest.product
+  assign variant = product.selected_or_first_available_variant
+%}
+
+<div
+  class="product-sku spacing-style"
+  style="{% render 'spacing-style', settings: block_settings %}"
+  {{ block.shopify_attributes }}
+>
+  {% if variant.sku != blank %}
+    <p style="color: #999; font-size: 14px; margin: 0;">SKU: {{ variant.sku }}</p>
+  {% endif %}
+</div>
+
+{% schema %}
+{
+  "name": "Product SKU",
+  "tag": null,
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Displays the product variant SKU"
+    },
+    {
+      "type": "header",
+      "content": "t:content.padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "t:settings.top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "t:settings.bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "padding-inline-start",
+      "label": "t:settings.left",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-inline-end",
+      "label": "t:settings.right",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product SKU",
+      "category": "t:categories.product"
+    }
+  ]
+}
+{% endschema %}

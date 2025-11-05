@@ -217,6 +217,62 @@
               },
               "block_order": []
             },
+            "wishlist_link": {
+              "type": "product-wishlist",
+              "settings": {
+                "padding-block-start": 0,
+                "padding-block-end": 12,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              }
+            },
+            "inventory_status": {
+              "type": "product-inventory",
+              "settings": {
+                "inventory_threshold": 10,
+                "show_inventory_quantity": false,
+                "padding-block-start": 16,
+                "padding-block-end": 8,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              }
+            },
+            "return_policy_text": {
+              "type": "product-return-policy",
+              "settings": {
+                "padding-block-start": 0,
+                "padding-block-end": 8,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              }
+            },
+            "secure_payment_text": {
+              "type": "product-secure-payment",
+              "settings": {
+                "padding-block-start": 0,
+                "padding-block-end": 16,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              }
+            },
+            "compliance_link": {
+              "type": "product-compliance-link",
+              "settings": {
+                "padding-block-start": 0,
+                "padding-block-end": 16,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              }
+            },
+            "product_sku": {
+              "type": "product-sku",
+              "settings": {
+                "padding-block-start": 0,
+                "padding-block-end": 24,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              }
+            },
             "accordion_description": {
               "type": "accordion",
               "name": "Product Description Accordion",
@@ -274,6 +330,64 @@
                 }
               },
               "block_order": ["description_row"]
+            },
+            "accordion_delivery": {
+              "type": "accordion",
+              "name": "Delivery Accordion",
+              "settings": {
+                "icon": "caret",
+                "dividers": false,
+                "type_preset": "h6",
+                "inherit_color_scheme": true,
+                "color_scheme": "scheme-1",
+                "border": "none",
+                "border_width": 0,
+                "border_opacity": 0,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {
+                "delivery_row": {
+                  "type": "_accordion-row",
+                  "settings": {
+                    "heading": "DELIVERY",
+                    "open_by_default": false,
+                    "icon": "none",
+                    "width": 20
+                  },
+                  "blocks": {
+                    "delivery_text": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>Standard shipping takes 5-7 business days. Express shipping available at checkout for faster delivery.</p>",
+                        "width": "100%",
+                        "max_width": "normal",
+                        "alignment": "left",
+                        "type_preset": "rte",
+                        "font": "var(--font-body--family)",
+                        "font_size": "",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "color": "",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      }
+                    }
+                  },
+                  "block_order": ["delivery_text"]
+                }
+              },
+              "block_order": ["delivery_row"]
             }
           },
           "block_order": [
@@ -281,7 +395,14 @@
             "divider_VJhene",
             "variant_picker_R3rGDr",
             "buy_buttons_eYQEYi",
-            "accordion_description"
+            "wishlist_link",
+            "inventory_status",
+            "return_policy_text",
+            "secure_payment_text",
+            "compliance_link",
+            "product_sku",
+            "accordion_description",
+            "accordion_delivery"
           ]
         }
       },

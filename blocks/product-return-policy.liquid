@@ -1,0 +1,91 @@
+
+
+{% assign block_settings = block.settings %}
+
+<div
+  class="product-return-policy spacing-style"
+  style="{% render 'spacing-style', settings: block_settings %}"
+  {{ block.shopify_attributes }}
+>
+  <div class="product-info-item">
+    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5">
+      <path d="M4 7h11M4 7l3-3m-3 3l3 3m9-3h-3m3 0v7a2 2 0 01-2 2H6a2 2 0 01-2-2V7"/>
+    </svg>
+    <span>30 days return policy</span>
+  </div>
+</div>
+
+{% stylesheet %}
+  .product-info-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .product-info-item svg {
+    flex-shrink: 0;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Return Policy",
+  "tag": null,
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Displays return policy information"
+    },
+    {
+      "type": "header",
+      "content": "t:content.padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "t:settings.top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "t:settings.bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 8
+    },
+    {
+      "type": "range",
+      "id": "padding-inline-start",
+      "label": "t:settings.left",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-inline-end",
+      "label": "t:settings.right",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "Return Policy",
+      "category": "t:categories.product"
+    }
+  ]
+}
+{% endschema %}

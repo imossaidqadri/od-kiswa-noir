@@ -1,0 +1,97 @@
+
+
+{% assign block_settings = block.settings %}
+
+<div
+  class="product-wishlist spacing-style"
+  style="{% render 'spacing-style', settings: block_settings %}"
+  {{ block.shopify_attributes }}
+>
+  <a href="#" class="product-info-item">
+    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5">
+      <path d="M10 17.25l-1.45-1.32C4 12.36 1 9.27 1 5.5 1 2.42 3.42 0 6.5 0c1.74 0 3.41.81 4.5 2.09C12.09.81 13.76 0 15.5 0 18.58 0 21 2.42 21 5.5c0 3.77-3 6.86-7.55 10.43L10 17.25z"/>
+    </svg>
+    <span>Add to Wishlist</span>
+  </a>
+</div>
+
+{% stylesheet %}
+  .product-info-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .product-info-item:hover {
+    text-decoration: underline;
+  }
+
+  .product-info-item svg {
+    flex-shrink: 0;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Add to Wishlist",
+  "tag": null,
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Displays an 'Add to Wishlist' link"
+    },
+    {
+      "type": "header",
+      "content": "t:content.padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "t:settings.top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "t:settings.bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "padding-inline-start",
+      "label": "t:settings.left",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-inline-end",
+      "label": "t:settings.right",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "Add to Wishlist",
+      "category": "t:categories.product"
+    }
+  ]
+}
+{% endschema %}

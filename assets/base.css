@@ -4273,6 +4273,16 @@ text-component {
   line-height: 24px !important;
 }
 
+/* Product page links styling */
+.product-information a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.product-information a:hover {
+  text-decoration: underline;
+}
+
 .product-card:hover,
 .collection-card:hover,
 .resource-card:hover,
