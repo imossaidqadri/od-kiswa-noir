@@ -346,6 +346,22 @@
       display: none;
     }
 
+    /* Fix cart drawer component wrapping issue */
+    cart-drawer-component {
+      display: contents;
+    }
+
+    /* Ensure wishlist and cart icons are in correct grid areas */
+    .action__wishlist {
+      grid-area: rightA;
+    }
+
+    .action__cart,
+    cart-drawer-component .header-actions__action {
+      grid-area: rightB;
+    }
+
+    /* Size all action buttons for mobile touch targets */
     .action__wishlist,
     .action__cart,
     .header-actions__action {
