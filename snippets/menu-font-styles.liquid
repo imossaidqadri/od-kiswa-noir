@@ -1,0 +1,15 @@
+{%- comment -%}
+  Derives CSS variables from the menu typography settings for 1st level/main menu items.
+  Accepts:
+     settings {block.settings}
+     menu_type {string}: drawer or mega_menu
+{%- endcomment -%}
+
+--menu-top-level-font-family: 'Facundo', sans-serif;
+--menu-top-level-font-size-desktop: 13px; --menu-top-level-font-style: normal; --menu-top-level-font-weight: 400; --menu-top-level-font-case: uppercase;
+{% if menu_type == 'drawer' %}
+  --menu-top-level-font-size: var(--menu-font-2xl--size); --menu-top-level-font-line-height: normal;
+{% else %}
+  --menu-top-level-font-size: 13px; --menu-top-level-font-line-height: normal;
+{% endif %}
+--menu-top-level-font-color: #333333; --menu-top-level-font-color-rgb: 51, 51, 51;
