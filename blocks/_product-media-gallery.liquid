@@ -690,6 +690,17 @@
     /* Make the height match the height of the model-viewer */
     height: 100vh;
   }
+
+  /* Reduce gap between main image and thumbnails on product page */
+  media-gallery slideshow-component:has(slideshow-controls[pagination-position='right']) {
+    column-gap: 4px;
+  }
+
+  @media screen and (min-width: 750px) and (max-width: 1200px) {
+    media-gallery slideshow-component:has(slideshow-controls[pagination-position='right']) {
+      column-gap: 2px;
+    }
+  }
 {% endstylesheet %}
 
 {% schema %}
