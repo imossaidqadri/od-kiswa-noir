@@ -4244,6 +4244,26 @@ text-component {
   }
 }
 
+/* Product card title custom styling for collections */
+:is(.product-card, .product-grid__card) .text-block p {
+  font-family: 'Facundo', sans-serif !important;
+  font-weight: 300 !important;
+  font-size: 12px !important;
+  letter-spacing: 0.52px !important;
+  line-height: 16.8px !important;
+  text-align: center !important;
+  color: rgb(51, 51, 51) !important;
+  border: 0 !important;
+  cursor: pointer !important;
+  overflow-wrap: anywhere !important;
+}
+
+/* Product card price center alignment */
+:is(.product-card, .product-grid__card) product-price,
+:is(.product-card, .product-grid__card) product-price > div {
+  text-align: center !important;
+}
+
 .product-card:hover,
 .collection-card:hover,
 .resource-card:hover,
