@@ -4264,6 +4264,15 @@ text-component {
   text-align: center !important;
 }
 
+/* Product page title - Liewood style */
+.product-information h1,
+.product-information .h1 {
+  font-family: 'Cormorant', serif !important;
+  font-weight: 400 !important;
+  font-size: 22px !important;
+  line-height: 24px !important;
+}
+
 .product-card:hover,
 .collection-card:hover,
 .resource-card:hover,
