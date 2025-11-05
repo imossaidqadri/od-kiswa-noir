@@ -221,7 +221,7 @@
               "type": "product-wishlist",
               "settings": {
                 "padding-block-start": 0,
-                "padding-block-end": 12,
+                "padding-block-end": 0,
                 "padding-inline-start": 0,
                 "padding-inline-end": 0
               }
@@ -231,8 +231,8 @@
               "settings": {
                 "inventory_threshold": 10,
                 "show_inventory_quantity": false,
-                "padding-block-start": 16,
-                "padding-block-end": 8,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
                 "padding-inline-start": 0,
                 "padding-inline-end": 0
               }
@@ -241,7 +241,7 @@
               "type": "product-return-policy",
               "settings": {
                 "padding-block-start": 0,
-                "padding-block-end": 8,
+                "padding-block-end": 0,
                 "padding-inline-start": 0,
                 "padding-inline-end": 0
               }
@@ -250,7 +250,7 @@
               "type": "product-secure-payment",
               "settings": {
                 "padding-block-start": 0,
-                "padding-block-end": 16,
+                "padding-block-end": 0,
                 "padding-inline-start": 0,
                 "padding-inline-end": 0
               }
@@ -259,16 +259,7 @@
               "type": "product-compliance-link",
               "settings": {
                 "padding-block-start": 0,
-                "padding-block-end": 16,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              }
-            },
-            "product_sku": {
-              "type": "product-sku",
-              "settings": {
-                "padding-block-start": 0,
-                "padding-block-end": 24,
+                "padding-block-end": 4,
                 "padding-inline-start": 0,
                 "padding-inline-end": 0
               }
@@ -400,7 +391,6 @@
             "return_policy_text",
             "secure_payment_text",
             "compliance_link",
-            "product_sku",
             "accordion_description",
             "accordion_delivery"
           ]
