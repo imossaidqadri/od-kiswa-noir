@@ -1,0 +1,265 @@
+{% comment %}
+  Reusable product grid section that displays products from a selected collection
+  in a clean, uniform grid layout. Can be added to any page via the theme editor.
+{% endcomment %}
+
+{% liquid
+  assign selected_collection = section.settings.collection
+  assign products_to_show = section.settings.products_count
+%}
+
+<div class="product-grid-section">
+  {% if section.settings.show_title and selected_collection.title != blank %}
+    <h2 class="product-grid-section__title">{{ selected_collection.title }}</h2>
+  {% endif %}
+
+  {% if selected_collection != blank and selected_collection.products_count > 0 %}
+    <div class="product-grid" style="--columns-desktop: {{ section.settings.columns_desktop }}; --columns-tablet: {{ section.settings.columns_tablet }}; --columns-mobile: {{ section.settings.columns_mobile }}; --grid-gap: {{ section.settings.grid_gap }}px;">
+      {% for product in selected_collection.products limit: products_to_show %}
+        <a href="{{ product.url }}" class="product-card">
+          <div class="product-card__image">
+            {% if product.featured_image %}
+              {% liquid
+                # First 2 products use eager loading with high priority for LCP optimization
+                if forloop.index <= 2
+                  assign image_loading = 'eager'
+                  assign image_fetchpriority = 'high'
+                else
+                  assign image_loading = 'lazy'
+                  assign image_fetchpriority = 'auto'
+                endif
+              %}
+              <div class="product-card__image-primary">
+                {% render 'image',
+                  image: product.featured_image,
+                  width: 800,
+                  loading: image_loading,
+                  fetchpriority: image_fetchpriority
+                %}
+              </div>
+              {% if product.images[1] %}
+                <div class="product-card__image-secondary">
+                  {% render 'image',
+                    image: product.images[1],
+                    width: 800,
+                    loading: 'lazy',
+                    fetchpriority: 'auto'
+                  %}
+                </div>
+              {% endif %}
+            {% else %}
+              {{ 'product-1' | placeholder_svg_tag: 'product-card__placeholder' }}
+            {% endif %}
+          </div>
+
+          <div class="product-card__details">
+            <h3 class="product-card__title">{{ product.title }}</h3>
+            <p class="product-card__price">{{ product.price | money }}</p>
+          </div>
+        </a>
+      {% endfor %}
+    </div>
+  {% else %}
+    <div class="product-grid-section__empty">
+      <p>{{ 'sections.product_grid.no_products' | t }}</p>
+    </div>
+  {% endif %}
+</div>
+
+{% stylesheet %}
+  .product-grid-section {
+    max-width: var(--page-width);
+    margin: 0 auto;
+    padding: 0.5rem 1.25rem 0;
+  }
+
+  @media (min-width: 768px) {
+    .product-grid-section {
+      padding-top: 3.35rem;
+    }
+  }
+
+  .product-grid-section__title {
+    margin: 0 0 2rem 0;
+    font-size: 2rem;
+    font-weight: 600;
+    text-align: center;
+  }
+
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(var(--columns-mobile, 1), 1fr);
+    gap: 40px 10px;
+  }
+
+  .product-card {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-decoration: none;
+    color: var(--color-foreground);
+    font-family: var(--font-primary--family);
+  }
+
+  .product-card__image {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 5 / 7;
+    overflow: hidden;
+    background: #f5f5f5;
+  }
+
+  .product-card__image .image {
+    height: 100%;
+  }
+
+  .product-card__image img,
+  .product-card__image .image > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .product-card__image-primary,
+  .product-card__image-secondary {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: opacity 0.3s ease;
+  }
+
+  .product-card__image-primary {
+    opacity: 1;
+    z-index: 1;
+  }
+
+  .product-card__image-secondary {
+    opacity: 0;
+    z-index: 2;
+  }
+
+  .product-card:hover .product-card__image-secondary {
+    opacity: 1;
+  }
+
+  .product-card__placeholder {
+    width: 100%;
+    height: 100%;
+  }
+
+  .product-card__details {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+
+  .product-card__title {
+    font-size: 0.75rem;
+    font-weight: 400;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .product-card__price {
+    font-size: 0.75rem;
+    font-weight: 400;
+    margin: 0;
+  }
+
+  .product-grid-section__empty {
+    text-align: center;
+    padding: 3rem 0;
+    color: #999;
+  }
+
+  @media (min-width: 768px) {
+    .product-grid {
+      grid-template-columns: repeat(var(--columns-tablet, 2), 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .product-grid {
+      grid-template-columns: repeat(var(--columns-desktop, 3), 1fr);
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:general.product_grid",
+  "settings": [
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "t:labels.collection"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_title",
+      "label": "t:labels.show_collection_title",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "products_count",
+      "min": 6,
+      "max": 48,
+      "step": 3,
+      "label": "t:labels.products_to_show",
+      "default": 12
+    },
+    {
+      "type": "header",
+      "content": "t:general.layout"
+    },
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "min": 2,
+      "max": 5,
+      "step": 1,
+      "label": "t:labels.columns_desktop",
+      "default": 3
+    },
+    {
+      "type": "range",
+      "id": "columns_tablet",
+      "min": 1,
+      "max": 3,
+      "step": 1,
+      "label": "t:labels.columns_tablet",
+      "default": 2
+    },
+    {
+      "type": "select",
+      "id": "columns_mobile",
+      "label": "t:labels.columns_mobile",
+      "options": [
+        { "value": "1", "label": "1" },
+        { "value": "2", "label": "2" }
+      ],
+      "default": "1"
+    },
+    {
+      "type": "range",
+      "id": "grid_gap",
+      "min": 8,
+      "max": 48,
+      "step": 4,
+      "unit": "px",
+      "label": "t:labels.grid_gap",
+      "default": 16
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:general.product_grid"
+    }
+  ]
+}
+{% endschema %}

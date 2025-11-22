@@ -1,0 +1,175 @@
+<div class="header-wrapper fixed top-0 left-0 right-0 z-10 bg-transparent">
+  <!-- Mobile Menu Overlay -->
+  <div id="mobile-menu" class="fixed flex h-[100dvh] w-screen flex-col justify-between gap-[10px] bg-white p-5 md:hidden hidden" style="z-index: 50;">
+    <!-- Close Button -->
+    <div class="flex justify-between items-center" style="position: relative; z-index: 51;">
+      <span class="header__link uppercase">{{ settings.brand_name }}</span>
+      <button id="menu-close" class="header__link header__link--menu uppercase" aria-label="Close menu">
+        Close
+      </button>
+    </div>
+
+    <div class="flex flex-col gap-[10px]">
+      {% for link in section.settings.menu.links %}
+        {% liquid
+          if link.title == 'Contact'
+            assign link_url = 'https://wa.me/263777444182?text=Hello%20Kiswa-Noir%20team%2C%20I%27d%20like%20to%20get%20in%20touch'
+            assign link_target = '_blank'
+          else
+            assign link_url = link.url
+            assign link_target = '_self'
+          endif
+        %}
+        <a href="{{ link_url }}" target="{{ link_target }}" class="header__link header__link--nav-mobile">
+          {{ link.title }}
+        </a>
+      {% endfor %}
+      <button data-cart-trigger class="header__link header__link--nav-mobile header__link--cart-trigger">
+        Cart
+      </button>
+    </div>
+
+    <div class="flex flex-col gap-[10px]">
+      <a href="https://otherdev.com" target="_blank" rel="noopener" class="header__link header__link--nav-mobile">
+        otherdev.com
+      </a>
+    </div>
+  </div>
+
+  <!-- Main Header -->
+  <header class="header group flex justify-between gap-[10px] px-5 pt-5 pb-2 md:pb-5 items-center md:grid md:grid-cols-12">
+    <a href="{{ routes.root_url }}" class="header__link header__link--logo md:col-span-7 block">
+      <svg viewBox="0 0 400 80" xmlns="http://www.w3.org/2000/svg" class="header__logo-svg">
+        <defs>
+          <style>
+            .logo-text {
+              font-family: 'Great Vibes', cursive;
+              font-size: 52px;
+              fill: currentColor;
+              stroke: currentColor;
+              stroke-width: 0.5;
+            }
+          </style>
+        </defs>
+        <text x="10" y="55" class="logo-text">Kiswa-Noir</text>
+      </svg>
+    </a>
+
+    {% for link in section.settings.menu.links %}
+      {% liquid
+        if link.title == 'Contact'
+          assign link_url = 'https://wa.me/263777444182?text=Hello%20Kiswa-Noir%20team%2C%20I%27d%20like%20to%20get%20in%20touch'
+          assign link_target = '_blank'
+        else
+          assign link_url = link.url
+          assign link_target = '_self'
+        endif
+      %}
+      <a href="{{ link_url }}" target="{{ link_target }}" class="header__link header__link--nav hidden md:block md:col-span-2 group-hover:opacity-50 hover:!opacity-100">
+        {{ link.title }}
+      </a>
+    {% endfor %}
+
+    <button data-cart-trigger class="header__link header__link--cart hidden md:block group-hover:opacity-50 hover:!opacity-100" aria-label="{{ 'cart.title' | t }}">
+      Cart
+    </button>
+
+    <button id="menu-toggle" class="header__link header__link--menu block md:hidden uppercase" aria-label="Toggle menu">
+      Menu
+    </button>
+  </header>
+</div>
+
+{% stylesheet %}
+  .header-wrapper {
+    max-width: var(--page-width);
+    margin: 0 auto;
+  }
+
+  .header {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--color-foreground, #000000);
+  }
+
+  .header__link {
+    text-decoration: none;
+    color: inherit;
+    transition: opacity 0.1s ease;
+  }
+
+  .header__link--logo img {
+    display: block;
+    height: auto;
+    max-height: 2rem;
+  }
+
+  .header__logo-svg {
+    display: block;
+    height: 2rem;
+    width: auto;
+  }
+
+  .header__link--menu,
+  .header__link--cart-trigger {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    text-transform: uppercase;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-align: left;
+  }
+
+  .header__link--cart {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 0.75rem;
+    font-weight: 500;
+  }
+
+  .header__link--nav-mobile {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-decoration: none;
+    color: var(--color-foreground, #000000);
+    text-transform: uppercase;
+  }
+
+  #mobile-menu {
+    top: 0;
+    left: 0;
+    transition: transform 0.3s ease;
+  }
+
+  #mobile-menu.hidden {
+    transform: translateY(-100%);
+  }
+
+  #mobile-menu:not(.hidden) {
+    transform: translateY(0);
+  }
+{% endstylesheet %}
+
+<script src="{{ 'header.js' | asset_url }}" defer></script>
+
+{% schema %}
+{
+  "name": "t:general.header",
+  "settings": [
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "t:labels.menu",
+      "default": "main-menu"
+    }
+  ]
+}
+{% endschema %}

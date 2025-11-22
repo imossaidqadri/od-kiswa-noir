@@ -1,0 +1,42 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero_rbEnAy": {
+      "type": "hero",
+      "name": "t:general.hero",
+      "settings": {
+        "desktop_image": "shopify://shop_images/034A0519_2.jpg",
+        "min_height_desktop": 85,
+        "mobile_image": "shopify://shop_images/1600x2000.webp",
+        "min_height_mobile": 80,
+        "show_overlay": true,
+        "overlay_opacity": 0.3
+      }
+    },
+    "product_grid_QfprHG": {
+      "type": "product-grid",
+      "name": "t:general.product_grid",
+      "settings": {
+        "collection": "frontpage",
+        "show_title": false,
+        "products_count": 48,
+        "columns_desktop": 3,
+        "columns_tablet": 2,
+        "columns_mobile": "1",
+        "grid_gap": 8
+      }
+    }
+  },
+  "order": [
+    "hero_rbEnAy",
+    "product_grid_QfprHG"
+  ]
+}
