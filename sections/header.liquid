@@ -3,7 +3,7 @@
   <div id="mobile-menu" class="fixed flex h-[100dvh] w-screen flex-col justify-between gap-[10px] bg-white p-5 md:hidden hidden" style="z-index: 50;">
     <!-- Close Button -->
     <div class="flex justify-between items-center" style="position: relative; z-index: 51;">
-      <span class="header__link uppercase">{{ settings.brand_name }}</span>
+      <span class="header__link header__link--brand">{{ settings.brand_name }}</span>
       <button id="menu-close" class="header__link header__link--menu uppercase" aria-label="Close menu">
         Close
       </button>
@@ -141,6 +141,12 @@
     text-decoration: none;
     color: var(--color-foreground, #000000);
     text-transform: uppercase;
+  }
+
+  .header__link--brand {
+    font-family: 'Great Vibes', cursive;
+    font-size: 1.5rem;
+    text-transform: none;
   }
 
   #mobile-menu {
