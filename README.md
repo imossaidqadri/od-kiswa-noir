@@ -1,4 +1,4 @@
-<img src="https://socialify.git.ci/ossaidqadri/od-kiswanoir/image?custom_description=Production-ready+Shopify+theme+built+with+Tailwind+CSS%2C+Bun%2C+and+modern+development+tools.+&description=1&font=KoHo&language=1&name=1&owner=1&pattern=Charlie+Brown&stargazers=1&theme=Auto />
+<img src="https://socialify.git.ci/ossaidqadri/od-kiswanoir/image?custom_description=Production-ready+Shopify+theme+built+with+Tailwind+CSS%2C+Bun%2C+and+modern+development+tools.+&description=1&font=KoHo&language=1&name=1&owner=1&pattern=Charlie+Brown&stargazers=1&theme=Auto" />
 
 
 
